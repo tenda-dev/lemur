@@ -51,7 +51,9 @@ class CfsslIssuerPlugin(IssuerPlugin):
 
         url = "{}{}".format(current_app.config.get("CFSSL_URL"), "/api/v1/cfssl/sign")
 
-        data = {"certificate_request": csr,"label":"ecc","profile":"RA"}
+        label = current_app.config.get("CFSSL_LABEL")
+        profile = current_app.config.get("CFSSL_PROFILE")
+        data = {"certificate_request": csr, "label": label, "profile": profile}
         data = json.dumps(data)
 
         try:
