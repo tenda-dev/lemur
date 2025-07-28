@@ -49,7 +49,7 @@ class CfsslIssuerPlugin(IssuerPlugin):
             f"Requesting a new cfssl certificate with csr: {csr}"
         )
 
-        url = "{}{}".format(current_app.config.get("CFSSL_URL"), "/api/v1/cfssl/sign")
+        url = "{}{}".format(current_app.config.get("CFSSL_URL"), "/api/v1/cfssl/authsign")
 
         label = current_app.config.get("CFSSL_LABEL")
         profile = current_app.config.get("CFSSL_PROFILE")
